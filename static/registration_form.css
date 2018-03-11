@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0
+}
+.container{
+    margin: 15px auto;
+    padding: 10px;
+    width: 50%
+}
+h1{
+    text-align: center
+}
+p{
+    margin: 10px
+}
+input{
+    float: right;
+    width: 50%
+}
+#button{
+    width: 25%
+}

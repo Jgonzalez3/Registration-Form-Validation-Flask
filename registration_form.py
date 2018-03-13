@@ -21,6 +21,9 @@ def process():
     password = request.form["password"]
     password = str(password)
     print type(password)
+    birthdate = request.form["birthdate"]
+    print birthdate
+    today = unicode(datetime.datetime.now())
     password_confirm = request.form["password_confirm"]
     password_confirm = str(password_confirm)
 
@@ -45,8 +48,10 @@ def process():
     if request.form["password_confirm"] != request.form["password"]:
         flash("Passwords Do Not Match Re-enter,")
         # return redirect("/")
-    if request.form["birthdate"] > datetime.datetime.now():
-        flash("Cannot Enter Date Before Today")
+    if request.form["birthdate"] == "":
+        flash("Birthdate must be Entered")
+    elif request.form["birthdate"] > today:
+        flash("Cannot Enter Date After Today")
     for i in range(0,len(first_name)):
         if first_name[i] == "1" or first_name[i] == "2" or first_name[i] == '3' or first_name[i] == '4' or first_name[i] == '5' or first_name[i] == '6' or first_name[i] == '7' or first_name[i] == '8' or first_name[i] == '9' or first_name[i] == '0':
             flash("First Name cannot contain numbers")
